@@ -1,17 +1,24 @@
 import web
+from dbindex import init_db, run_sql
 
 urls = (
- '/', 'index'
+ '/hello', 'Index'
 )
 
-app = web.application(urls,globals())
+app = web.application(urls, globals())
+db_cursor = init_db()
 
-class index(object):
+render = web.template.render('templates/')h
+class Index(objecth
   def GET(self):
-    greeting = "Hello World"
+    data = run_sql(db_cursor, 'select description, deadline from todoTasks')
+    return render.hello_form()
+   
+  def POST(self):
+    form = web.input(name="Nobady",greet="Hello")
+    greeting = "%s, %s" % (form.greet, form.name)
     return render.index(greeting = greeting)
     
-render = web.template.render('templates/')
 
 
 if __name__ == "__main__":
