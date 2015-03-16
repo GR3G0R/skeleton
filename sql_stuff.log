@@ -1,0 +1,18 @@
+Gregory=# \connect template1
+You are now connected to database "template1" as user "Gregory".
+template1=# CREATE TABLE todo (
+id bigserial primary key,
+title text,
+created_at timestamp without time zone default (now() at time zone 'utc'),
+done boolean default 'f'
+);
+
+
+
+template1=# insert into todo (title) values ('hello world');
+INSERT 0 1
+template1=# select * from todo;
+ id |    title    |         created_at         | done
+----+-------------+----------------------------+------
+  1 | hello world | 2015-03-16 02:35:59.365503 | f
+(1 row)

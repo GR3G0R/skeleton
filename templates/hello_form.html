@@ -1,3 +1,4 @@
+$def with(data)
 <html>
   <head>
     <title>Sample Web Form</title>
@@ -5,6 +6,11 @@
 <body>
 
 <h1>Fill Out This Form</h1>
+
+<h4>$data.id<h4>
+<h4>$data.text<h4>
+<h4>$data.created_at<h4>
+<h4>$data.done<h4>
 
 <form action="/hello" method="POST">
   A Greeting: <input type="text" name="greet">
